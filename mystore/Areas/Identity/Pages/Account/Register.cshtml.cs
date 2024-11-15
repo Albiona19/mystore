@@ -128,7 +128,9 @@ namespace mystore.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser()
+
                 {
+                    //UserName = Input.UserName,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     Email = Input.Email,
