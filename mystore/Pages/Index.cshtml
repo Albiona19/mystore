@@ -18,6 +18,7 @@
             margin: 0;
             padding: 0;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         .header-section {
@@ -28,17 +29,17 @@
             border-bottom: 3px solid #f1a8b3;
         }
 
-            .header-section h1 {
-                font-size: 3.5em;
-                margin-bottom: 20px;
-                font-weight: bold;
-            }
+        .header-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-            .header-section p {
-                font-size: 1.4em;
-                margin-top: 10px;
-                font-weight: lighter;
-            }
+        .header-section p {
+            font-size: 1.4em;
+            margin-top: 10px;
+            font-weight: lighter;
+        }
 
         .btn-learn-more {
             margin-top: 30px;
@@ -54,9 +55,23 @@
             transition: background-color 0.3s;
         }
 
-            .btn-learn-more:hover {
-                background-color: #e06e42;
-            }
+        .btn-learn-more:hover {
+            background-color: #e06e42;
+        }
+
+        .book-carousel img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
         .about-us {
             background-color: white;
@@ -65,33 +80,63 @@
             color: #333;
         }
 
-            .about-us h2 {
-                font-size: 2.5em;
-                margin-bottom: 20px;
-                font-weight: bold;
-            }
+        .about-us h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-            .about-us p {
-                font-size: 1.1em;
-                color: #666;
-                line-height: 1.6;
-                max-width: 900px;
-                margin: 0 auto;
-                margin-bottom: 30px;
-            }
+        .about-us p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
 
-            .about-us img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-        .carousel-item img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
+        .about-us img {
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .popular-books {
+            padding: 60px 0;
+            background-color: #fff;
+            text-align: center;
+            color: #333;
+        }
+
+        .popular-books h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .book-card {
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: scale(1.05);
+        }
+
+        .book-card img {
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .book-card-body {
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .book-card-body:hover {
+            background-color: #ffebf0; /* Soft pink on hover */
         }
 
         .footer {
@@ -104,24 +149,28 @@
             width: 100%;
         }
 
-        .content {
+        .search-bar {
+            margin: 30px 0;
             text-align: center;
-            margin-top: 50px;
         }
 
-            .content h2 {
-                font-size: 2.5em;
-                color: #333;
-                margin-bottom: 20px;
-            }
+        .search-bar input {
+            padding: 12px;
+            font-size: 1.1em;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: all 0.3s;
+        }
 
-            .content p {
-                font-size: 1.1em;
-                color: #666;
-                line-height: 1.6;
-                max-width: 800px;
-                margin: 0 auto;
-            }
+        .search-bar input:focus {
+            outline: none;
+            border-color: #ff7f50;
+        }
+
+        .footer p {
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -130,21 +179,21 @@
         <h1>Welcome to Our Bookstore</h1>
         <p>Your one-stop shop for books of every genre. Find your next great read today!</p>
         <a href="https://learn.microsoft.com/aspnet/core" target="_blank">
-            <button class="btn-learn-more">Learn More</button>
+            <button class="btn-learn-more">Browse Books</button>
         </a>
     </div>
 
     <!-- Book Carousel (Slider) -->
-    <div id="bookCarousel" class="carousel slide" data-ride="carousel">
+    <div id="bookCarousel" class="carousel slide book-carousel" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://scholarlykitchen.sspnet.org/wp-content/uploads/2018/07/iStock-506432952.jpg" alt="Book 1">
+                <img src="https://th.bing.com/th/id/R.bb28b54399761fc65ff403c94299497d?rik=1NEC4UndQdaaqw&riu=http%3a%2f%2fwww.zastavki.com%2fpictures%2foriginals%2f2014%2fCreative_Wallpaper_Stack_of_books_on_the_bench_082401_.jpg&ehk=uia0wBMuDRBSjo12VEn3TJvW6d2oN7ye2qe%2fm5nIywo%3d&risl=&pid=ImgRaw&r=0" alt="Book 1">
             </div>
             <div class="carousel-item">
-                <img src="https://insidesources.com/wp-content/uploads/2014/06/bigstock-A-pile-of-books-with-library-o-54563726.jpg" alt="Book 2">
+                <img src="https://th.bing.com/th/id/R.068f8744ba043b46a14d30ebf026e92f?rik=J4NeRZc%2fIAPwLg&pid=ImgRaw&r=0" alt="Book 2">
             </div>
             <div class="carousel-item">
-                <img src="https://images.pexels.com/photos/1387022/pexels-photo-1387022.jpeg?cs=srgb&dl=book-aesthetic-books-old-books-open-books-1387022.jpg&fm=jpg" alt="Book 3">
+                <img src="https://sfgoodwill.org/wp-content/uploads/2020/08/Books-and-laptop-.jpg" alt="Book 3">
             </div>
         </div>
         <a class="carousel-control-prev" href="#bookCarousel" role="button" data-slide="prev">
@@ -157,20 +206,59 @@
         </a>
     </div>
 
-    <!-- About Us Section -->
-    <div class="about-us">
-        <h2>About Us</h2>
-        <p>At our bookstore, we believe that every book has the power to change lives. Whether you're searching for your next great read or a gift for a loved one, we offer a curated collection of the finest books from around the world. Our mission is simple: to share the joy of reading with everyone.</p>
-        <img src="https://th.bing.com/th/id/R.bb28b54399761fc65ff403c94299497d?rik=1NEC4UndQdaaqw&riu=http%3a%2f%2fwww.zastavki.com%2fpictures%2foriginals%2f2014%2fCreative_Wallpaper_Stack_of_books_on_the_bench_082401_.jpg&ehk=uia0wBMuDRBSjo12VEn3TJvW6d2oN7ye2qe%2fm5nIywo%3d&risl=&pid=ImgRaw&r=0" alt="Bookshelf">
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for books..." aria-label="Search">
     </div>
 
-    <div class="content">
-        <h2>Browse Our Collection</h2>
-        <p>We offer a vast collection of books across different categories. Whether you love fiction, non-fiction, self-help, or mystery, we have something for everyone. Discover the perfect book for you today!</p>
+    <!-- Popular Books Section -->
+    <div class="popular-books">
+        <h2>Popular Books</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card book-card">
+                        <img src="https://th.bing.com/th/id/R.8546820ee580a8cdb3a9c1ebd11a4daa?rik=4fwMklQJCQU1Ow&riu=http%3a%2f%2fredonline.cdnds.net%2fmain%2fthumbs%2f25788%2fstack_of_books.jpg&ehk=xwtWWiDiDhhxV8yXIhXFgeNFvZ4ETt83uVe2km2jabI%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="Book 1">
+                        <div class="card-body book-card-body">
+                            <h5 class="card-title">Book Title 1</h5>
+                            <p class="card-text">A brief description of this amazing book. A must-read for anyone interested in mystery and adventure.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card book-card">
+                        <img src="https://th.bing.com/th/id/OIP.NH0N1_bL5K4ypjOWhaa7xgHaE4?w=2945&h=1942&rs=1&pid=ImgDetMain" class="card-img-top" alt="Book 2">
+                        <div class="card-body book-card-body">
+                            <h5 class="card-title">Book Title 2</h5>
+                            <p class="card-text">Explore the world of science fiction and fantasy with this incredible story.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card book-card">
+                        <img src="https://miro.medium.com/max/10944/1*S81O15rjKfG-BFdnNC6-GQ.jpeg" class="card-img-top" alt="Book 3">
+                        <div class="card-body book-card-body">
+                            <h5 class="card-title">Book Title 3</h5>
+                            <p class="card-text">Dive into the best seller that has captured the hearts of readers around the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card book-card">
+                        <img src="https://news.asu.edu/sites/default/files/article_heros/book_article_stock_photo_2.jpeg" class="card-img-top" alt="Book 4">
+                        <div class="card-body book-card-body">
+                            <h5 class="card-title">Book Title 4</h5>
+                            <p class="card-text">A heartwarming story about love, friendship, and hope.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer Section -->
     <footer class="footer">
-        <p>&copy; 2024 Bookstore Inc. | All rights reserved</p>
+        <p>&copy; 2024 Bookstore Inc. | All rights reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
     <!-- JavaScript files placed correctly -->
@@ -179,3 +267,4 @@
 
 </body>
 </html>
+
